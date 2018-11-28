@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>User Profile Client - History</title>
+</head>
+<body>
+
+<h1>Last 5 successful login times</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th> Date </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${userHistories.empty}">
+        <td colspan="2"> No History Available </td>
+    </tr>
+    <tr th:each="book : ${userHistories}">
+        <td><span th:text="${book}"> Title </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>

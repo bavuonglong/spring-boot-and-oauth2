@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>User Profile Client - Registration</title>
+</head>
+<body>
+<h1>Registration</h1>
+<form action="#" th:action="@{/signUp}" th:object="${userDTO}" method="post">
+    <div class="container">
+        <p>Please fill in this form to create an account.</p>
+        <hr />
+
+        <b>Username</b>
+        <input type="text" placeholder="Enter Username" th:field="*{username}" name="username" required="required" />
+        <br/>
+
+        <b>Password</b>
+        <input type="password" placeholder="Enter Password" th:field="*{password}" name="password" required="required" />
+        <br/>
+
+        <b>Repeat Password</b>
+        <input type="password" placeholder="Repeat Password" th:field="*{confirmedPassword}" name="confirmedPassword" required="required" />
+        <br/>
+
+        <button type="submit">Register</button>
+    </div>
+
+    <hr />
+    <div >
+        <p>Already have an account? <a href="/user-profile">Login</a>.</p>
+    </div>
+</form>
+</body>
+</html>

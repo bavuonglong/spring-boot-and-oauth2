@@ -1,0 +1,27 @@
+server:
+  port: 8081
+  session:
+    cookie:
+      name: UISESSION
+
+resources-server:
+  host: http://localhost:8080
+  user-history-endpoint: /api/v1/users/user/histories
+  create-user-endpoint: /api/v1/users/user
+  user-logout-endpoint: /api/v1/users/user/logout
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: read-write-client
+      client-secret: read-write-client-password
+      access-token-uri: ${resources-server.host}/oauth/token
+      user-authorization-uri: ${resources-server.host}/oauth/authorize
+    resource:
+      userInfoUri: ${resources-server.host}/api/v1/users/me
+
+spring:
+  thymeleaf:
+    cache: false
